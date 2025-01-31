@@ -1,0 +1,3 @@
+GLOBALS 'glob.4gl'
+FUNCTION f1()
+END FUNCTION

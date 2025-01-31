@@ -1,0 +1,20 @@
+FUNCTION mod2()
+	IF 1=2 AND f_true("mod2") THEN
+		DISPLAY "AND TRUE  module2"
+	ELSE 
+		DISPLAY "AND FALSE module2"
+	END IF
+
+	IF 1=1 OR f_true("mod2") THEN
+		DISPLAY "OR TRUE  module2"
+	ELSE 
+		DISPLAY "OR FALSE module2"
+	END IF
+	
+END FUNCTION
+
+FUNCTION f_true(s)
+ DEFINE s STRING
+	DISPLAY s
+	RETURN TRUE
+END FUNCTION

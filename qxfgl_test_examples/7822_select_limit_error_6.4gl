@@ -1,0 +1,64 @@
+#########################################################################################################################################
+# Created By: albo (Bondar A.G.)
+#########################################################################################################################################
+DATABASE stores
+MAIN
+   DEFINE
+      v_row_number  INTEGER,
+      v_char CHAR(80),
+      rec_limit RECORD
+                  v_row_number  INTEGER,
+                  v_char CHAR(80)
+                END RECORD
+
+   WHENEVER ERROR CONTINUE
+   DROP TABLE lyc_7822_select_limit_error_6
+   CREATE TABLE lyc_7822_select_limit_error_6
+   (row_number INTEGER,
+    col_char CHAR(80)
+   )
+
+   INSERT INTO lyc_7822_select_limit_error_6 VALUES(1,"1st row")
+   INSERT INTO lyc_7822_select_limit_error_6 VALUES(2,"2nd row")
+   INSERT INTO lyc_7822_select_limit_error_6 VALUES(3,"3rd row")
+   INSERT INTO lyc_7822_select_limit_error_6 VALUES(4,"4th row")
+   INSERT INTO lyc_7822_select_limit_error_6 VALUES(5,"5th row")
+   IF SQLCA.SQLCODE <> 0 THEN DISPLAY "1. SQLCA.SQLCODE = ",SQLCA.SQLCODE EXIT PROGRAM END IF
+
+   SQL SELECT LIMIT 1 * INTO $rec_limit.* FROM lyc_7822_select_limit_error_6 ORDER BY row_number END SQL
+   IF SQLCA.SQLCODE <> 0 THEN DISPLAY "2. SQLCA.SQLCODE = ",SQLCA.SQLCODE ELSE DISPLAY "2. ", rec_limit.v_row_number,"  ",rec_limit.v_char END IF
+
+   SQL SELECT LIMIT 10 * INTO $rec_limit.* FROM lyc_7822_select_limit_error_6 WHERE row_number = 5 END SQL
+   IF SQLCA.SQLCODE <> 0 THEN DISPLAY "3. SQLCA.SQLCODE = ",SQLCA.SQLCODE ELSE DISPLAY "3. ", rec_limit.v_row_number,"  ",rec_limit.v_char END IF
+
+   SQL SELECT LIMIT 2 * INTO $rec_limit.* FROM lyc_7822_select_limit_error_6 ORDER BY row_number END SQL
+   IF SQLCA.SQLCODE <> 0 THEN DISPLAY "4. SQLCA.SQLCODE = ",SQLCA.SQLCODE ELSE DISPLAY "4. ", rec_limit.v_row_number,"  ",rec_limit.v_char END IF
+
+   DECLARE cursor_1 CURSOR FOR SQL SELECT LIMIT 1 * FROM lyc_7822_select_limit_error_6 ORDER BY row_number END SQL
+   FOREACH cursor_1 INTO rec_limit.*
+      IF SQLCA.SQLCODE <> 0 THEN DISPLAY "5. SQLCA.SQLCODE = ",SQLCA.SQLCODE ELSE DISPLAY "5. ", rec_limit.v_row_number,"  ",rec_limit.v_char END IF
+   END FOREACH
+   
+   DECLARE cursor_2 CURSOR FOR SQL SELECT LIMIT 10 * FROM lyc_7822_select_limit_error_6 WHERE row_number = 5 END SQL
+   FOREACH cursor_2 INTO rec_limit.*
+      IF SQLCA.SQLCODE <> 0 THEN DISPLAY "6. SQLCA.SQLCODE = ",SQLCA.SQLCODE ELSE DISPLAY "6. ", rec_limit.v_row_number,"  ",rec_limit.v_char END IF
+   END FOREACH
+   
+   DECLARE cursor_3 CURSOR FOR SQL SELECT LIMIT 2 * FROM lyc_7822_select_limit_error_6 ORDER BY row_number END SQL
+   FOREACH cursor_3 INTO rec_limit.*
+      IF SQLCA.SQLCODE <> 0 THEN DISPLAY "7. SQLCA.SQLCODE = ",SQLCA.SQLCODE ELSE DISPLAY "7. ", rec_limit.v_row_number,"  ",rec_limit.v_char END IF
+   END FOREACH
+
+   DECLARE cursor_4 CURSOR FOR SQL SELECT LIMIT 5 * FROM lyc_7822_select_limit_error_6 ORDER BY row_number END SQL
+   FOREACH cursor_4 INTO rec_limit.*
+      IF SQLCA.SQLCODE <> 0 THEN DISPLAY "8. SQLCA.SQLCODE = ",SQLCA.SQLCODE ELSE DISPLAY "8. ", rec_limit.v_row_number,"  ",rec_limit.v_char END IF
+   END FOREACH
+   
+   DECLARE cursor_5 CURSOR FOR SQL SELECT LIMIT 10 * INTO $rec_limit.* FROM lyc_7822_select_limit_error_6 ORDER BY row_number END SQL
+   FOREACH cursor_5
+      IF SQLCA.SQLCODE <> 0 THEN DISPLAY "9. SQLCA.SQLCODE = ",SQLCA.SQLCODE ELSE DISPLAY "9. ", rec_limit.v_row_number,"  ",rec_limit.v_char END IF
+   END FOREACH
+
+	DROP TABLE lyc_7822_select_limit_error_6
+END MAIN
+   

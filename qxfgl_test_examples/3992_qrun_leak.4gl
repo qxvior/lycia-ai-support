@@ -1,0 +1,23 @@
+MAIN
+DEFINE rec RECORD
+	name CHAR(30),
+	surname CHAR(30)
+END RECORD
+options         
+    ACCEPT KEY control-return,
+    INPUT WRAP
+
+OPEN WINDOW w1 AT 2,2 WITH FORM "3992/3992_qrun_leak" ATTRIBUTE(BORDER)
+
+INPUT BY NAME
+	rec.name,
+	rec.surname
+		WITHOUT DEFAULTS
+
+BEFORE FIELD surname
+	NEXT FIELD surname
+
+END INPUT
+
+CLOSE WINDOW w1
+END MAIN

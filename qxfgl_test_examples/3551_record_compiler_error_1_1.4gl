@@ -1,0 +1,8 @@
+MAIN
+DEFINE rec1 RECORD
+		f1 CHAR(10),
+		f2 INT
+		END RECORD
+		
+DISPLAY rec1.*.*		
+END MAIN

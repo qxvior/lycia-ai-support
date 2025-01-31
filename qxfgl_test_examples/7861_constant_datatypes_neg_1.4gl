@@ -1,0 +1,4 @@
+PUBLIC CONSTANT publ_const_record RECORD f1,f2,f3 CHAR END RECORD = "AAA","BBB","CCC"
+
+MAIN
+END MAIN

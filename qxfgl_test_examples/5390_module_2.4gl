@@ -1,0 +1,4 @@
+GLOBALS "5390_global_2.4gl"
+FUNCTION func1()
+OPEN WINDOW w WITH FORM "function_form"
+END FUNCTION

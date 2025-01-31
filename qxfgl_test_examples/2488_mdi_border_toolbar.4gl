@@ -1,0 +1,18 @@
+MAIN
+DEFINE f1,f2 CHAR(20)
+CALL ui.Interface.setType("container")
+
+OPEN WINDOW w1 WITH FORM "2488/2488_mdi_border_toolbar1"
+
+	INPUT BY NAME f1
+		ON ACTION "OPEN BORDERED DIALOG"
+		 OPEN WINDOW w AT 10,10 WITH FORM "2488/2488_mdi_border_toolbar2" ATTRIBUTE(BORDER)
+		 INPUT BY NAME f2
+			AFTER INPUT
+				DISPLAY f2
+		 	ON ACTION my_action
+		 		DISPLAY "my_action"
+		 END INPUT
+		 CLOSE WINDOW w
+	END INPUT
+END MAIN

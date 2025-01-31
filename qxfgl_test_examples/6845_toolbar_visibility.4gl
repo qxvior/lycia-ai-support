@@ -1,0 +1,4 @@
+MAIN
+OPEN WINDOW w WITH 1000 rows, 50 columns ATTRIBUTE (BORDER)
+CALL fgl_getkey()
+END MAIN

@@ -1,0 +1,11 @@
+DEFINE my_arr_rec DYNAMIC ARRAY OF RECORD
+	driver STRING,
+	vehicle_num STRING
+END RECORD
+
+MAIN
+	OPEN WINDOW w1 WITH FORM "7477/7477_scroll_empty_screenarr_crash" ATTRIBUTE(BORDER)
+	DISPLAY ARRAY my_arr_rec TO scr_wait.*
+	DISPLAY "OK"
+END MAIN
+	

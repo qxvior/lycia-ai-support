@@ -1,0 +1,38 @@
+MAIN
+ DEFINE f1,f2 TEXT,f3 STRING  
+ DEFINE tarr1 DYNAMIC ARRAY OF RECORD f1,f2 TEXT, f3 STRING END RECORD
+ DEFINE tarr2 DYNAMIC ARRAY OF RECORD f1 TEXT,f3 STRING END RECORD
+ 
+ LET f1 = "f1"
+ LET f2 = "f2"
+ 
+ LET tarr1[1].f1 = "f1"
+ LET tarr1[1].f2 = "f2"
+ LET tarr1[1].f3 = "f3"
+ 
+ LET tarr2[1].f1 = "f1"
+ LET tarr2[1].f3 = "f3"
+ 
+ OPEN WINDOW w1 WITH FORM "7914/7914_field_form" ATTRIBUTE(BORDER)
+ INPUT BY NAME f3,f1 ATTRIBUTE(WITHOUT DEFAULTS)
+ 	BEFORE INPUT DISPLAY BY NAME f2 #f2 no button
+ END INPUT
+
+
+ INPUT BY NAME f3, f1, f2 ATTRIBUTE(WITHOUT DEFAULTS)
+ 	BEFORE INPUT
+ 		CALL dialog.setFieldActive("f1", FALSE) #f1 no button
+ END INPUT
+ CLOSE WINDOW w1
+
+ OPEN WINDOW w2 WITH FORM "7914/7914_table_form" ATTRIBUTE(BORDER)
+ DISPLAY ARRAY tarr1 TO form_arr1.* #no buttons for blobviewers f1 and f2
+
+ INPUT ARRAY tarr2 FROM form_arr2.*  ATTRIBUTE(WITHOUT DEFAULTS)#f2 no button
+
+ INPUT ARRAY tarr1 FROM form_arr1.*  ATTRIBUTE(WITHOUT DEFAULTS)#f1 no button
+	BEFORE INPUT
+		CALL dialog.setFieldActive("form_arr1.f1", FALSE)
+ END INPUT
+
+END MAIN

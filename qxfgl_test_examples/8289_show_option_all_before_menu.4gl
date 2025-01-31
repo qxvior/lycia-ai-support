@@ -1,0 +1,17 @@
+MAIN
+	MENU "Death Details"
+		BEFORE MENU
+			SHOW OPTION ALL
+			DISPLAY "OK"
+		COMMAND "Exit"
+			EXIT MENU
+	END MENU
+
+	MENU "Death Details"
+		BEFORE MENU
+			SHOW OPTION ALL
+			CALL fgl_getkey()
+		COMMAND "Exit"
+			EXIT MENU
+	END MENU
+END MAIN

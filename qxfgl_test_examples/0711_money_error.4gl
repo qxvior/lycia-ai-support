@@ -1,0 +1,105 @@
+#########################################################################################################################################
+# Authtor Bondar A.G.
+#########################################################################################################################################
+DATABASE stores
+MAIN
+   DEFINE
+      ins_dec_32_1,  sel_dec_32_1  MONEY(32,1), 
+      ins_dec_32_16, sel_dec_32_16 MONEY(32,16),
+      ins_dec_32_32, sel_dec_32_32 MONEY(32,32),
+      stmt CHAR(1024)
+
+   WHENEVER ERROR CONTINUE
+   DROP TABLE lyc_0711
+   CREATE TABLE lyc_0711
+   (
+    col_dec_32_1  MONEY(32,1), 
+    col_dec_32_16 MONEY(32,16),
+    col_dec_32_32 MONEY(32,32)
+   )
+
+   LET ins_dec_32_1  = -.1
+   LET stmt = "INSERT INTO lyc_0711(col_dec_32_1) VALUES(""",ins_dec_32_1,""")"
+   PREPARE p_stmt_5 FROM stmt
+   IF SQLCA.SQLCODE <> 0 THEN DISPLAY "11. SQLCA.SQLCODE = ",SQLCA.SQLCODE END IF
+   EXECUTE p_stmt_5
+   IF SQLCA.SQLCODE <> 0 THEN DISPLAY "12. SQLCA.SQLCODE = ",SQLCA.SQLCODE END IF
+   LET sel_dec_32_1 = NULL
+   LET stmt = "SELECT col_dec_32_1 FROM lyc_0711 WHERE col_dec_32_1 = """,ins_dec_32_1,""""
+   PREPARE p_stmt_6 FROM stmt
+   IF SQLCA.SQLCODE <> 0 THEN DISPLAY "13. SQLCA.SQLCODE = ",SQLCA.SQLCODE END IF
+   EXECUTE p_stmt_6 INTO sel_dec_32_1
+   IF SQLCA.SQLCODE <> 0 THEN DISPLAY "14. SQLCA.SQLCODE = ",SQLCA.SQLCODE END IF
+   IF sel_dec_32_1       IS NULL   THEN DISPLAY "15. NULL"   ELSE DISPLAY "15. |",sel_dec_32_1,"|"   END IF
+
+   LET ins_dec_32_1  =  9999999999999999999999999999999.9
+   LET stmt = "INSERT INTO lyc_0711(col_dec_32_1) VALUES(""",ins_dec_32_1,""")"
+   PREPARE p_stmt_7 FROM stmt
+   IF SQLCA.SQLCODE <> 0 THEN DISPLAY "16. SQLCA.SQLCODE = ",SQLCA.SQLCODE END IF
+   EXECUTE p_stmt_7
+   IF SQLCA.SQLCODE <> 0 THEN DISPLAY "17. SQLCA.SQLCODE = ",SQLCA.SQLCODE END IF
+   LET sel_dec_32_1 = NULL
+   LET stmt = "SELECT col_dec_32_1 FROM lyc_0711 WHERE col_dec_32_1 = """,ins_dec_32_1,""""
+   PREPARE p_stmt_8 FROM stmt
+   IF SQLCA.SQLCODE <> 0 THEN DISPLAY "18. SQLCA.SQLCODE = ",SQLCA.SQLCODE END IF
+   EXECUTE p_stmt_8 INTO sel_dec_32_1
+   IF SQLCA.SQLCODE <> 0 THEN DISPLAY "19. SQLCA.SQLCODE = ",SQLCA.SQLCODE END IF
+   IF sel_dec_32_1       IS NULL   THEN DISPLAY "20. NULL"   ELSE DISPLAY "20. |",sel_dec_32_1,"|"   END IF
+
+   LET ins_dec_32_16  = 0.0000000000000001
+   LET stmt = "INSERT INTO lyc_0711(col_dec_32_16) VALUES(""",ins_dec_32_16,""")"
+   PREPARE p_stmt_65 FROM stmt
+   IF SQLCA.SQLCODE <> 0 THEN DISPLAY "161.SQLCA.SQLCODE = ",SQLCA.SQLCODE END IF
+   EXECUTE p_stmt_65
+   IF SQLCA.SQLCODE <> 0 THEN DISPLAY "162.SQLCA.SQLCODE = ",SQLCA.SQLCODE END IF
+   LET sel_dec_32_16 = NULL
+   LET stmt = "SELECT col_dec_32_16 FROM lyc_0711 WHERE col_dec_32_16 = """,ins_dec_32_16,""""
+   PREPARE p_stmt_66 FROM stmt
+   IF SQLCA.SQLCODE <> 0 THEN DISPLAY "163.SQLCA.SQLCODE = ",SQLCA.SQLCODE END IF
+   EXECUTE p_stmt_66 INTO sel_dec_32_16
+   IF SQLCA.SQLCODE <> 0 THEN DISPLAY "164.SQLCA.SQLCODE = ",SQLCA.SQLCODE END IF
+   IF sel_dec_32_16      IS NULL   THEN DISPLAY "165.NULL"   ELSE DISPLAY "165.|",sel_dec_32_16,"|"   END IF
+
+   LET ins_dec_32_16  =  -9999999999999999.9999999999999999
+   LET stmt = "INSERT INTO lyc_0711(col_dec_32_16) VALUES(""",ins_dec_32_16,""")"
+   PREPARE p_stmt_67 FROM stmt
+   IF SQLCA.SQLCODE <> 0 THEN DISPLAY "166.SQLCA.SQLCODE = ",SQLCA.SQLCODE END IF
+   EXECUTE p_stmt_67
+   IF SQLCA.SQLCODE <> 0 THEN DISPLAY "167.SQLCA.SQLCODE = ",SQLCA.SQLCODE END IF
+   LET sel_dec_32_16 = NULL
+   LET stmt = "SELECT col_dec_32_16 FROM lyc_0711 WHERE col_dec_32_16 = """,ins_dec_32_16,""""
+   PREPARE p_stmt_68 FROM stmt
+   IF SQLCA.SQLCODE <> 0 THEN DISPLAY "168.SQLCA.SQLCODE = ",SQLCA.SQLCODE END IF
+   EXECUTE p_stmt_68 INTO sel_dec_32_16
+   IF SQLCA.SQLCODE <> 0 THEN DISPLAY "169.SQLCA.SQLCODE = ",SQLCA.SQLCODE END IF
+   IF sel_dec_32_16      IS NULL   THEN DISPLAY "170.NULL"   ELSE DISPLAY "170.|",sel_dec_32_16,"|"   END IF
+
+   LET ins_dec_32_32  = -0.00000000000000000000000000000001
+   LET stmt = "INSERT INTO lyc_0711(col_dec_32_32) VALUES(""",ins_dec_32_32,""")"
+   PREPARE p_stmt_129 FROM stmt
+   IF SQLCA.SQLCODE <> 0 THEN DISPLAY "321.SQLCA.SQLCODE = ",SQLCA.SQLCODE END IF
+   EXECUTE p_stmt_129
+   IF SQLCA.SQLCODE <> 0 THEN DISPLAY "322.SQLCA.SQLCODE = ",SQLCA.SQLCODE END IF
+   LET sel_dec_32_32 = NULL
+   LET stmt = "SELECT col_dec_32_32 FROM lyc_0711 WHERE col_dec_32_32 = """,ins_dec_32_32,""""
+   PREPARE p_stmt_130 FROM stmt
+   IF SQLCA.SQLCODE <> 0 THEN DISPLAY "323.SQLCA.SQLCODE = ",SQLCA.SQLCODE END IF
+   EXECUTE p_stmt_130 INTO sel_dec_32_32
+   IF SQLCA.SQLCODE <> 0 THEN DISPLAY "324.SQLCA.SQLCODE = ",SQLCA.SQLCODE END IF
+   IF sel_dec_32_32      IS NULL   THEN DISPLAY "325.NULL"   ELSE DISPLAY "325.|",sel_dec_32_32,"|"   END IF
+
+   LET ins_dec_32_32  =  .99999999999999999999999999999999
+   LET stmt = "INSERT INTO lyc_0711(col_dec_32_32) VALUES(""",ins_dec_32_32,""")"
+   PREPARE p_stmt_131 FROM stmt
+   IF SQLCA.SQLCODE <> 0 THEN DISPLAY "326.SQLCA.SQLCODE = ",SQLCA.SQLCODE END IF
+   EXECUTE p_stmt_131
+   IF SQLCA.SQLCODE <> 0 THEN DISPLAY "327.SQLCA.SQLCODE = ",SQLCA.SQLCODE END IF
+   LET sel_dec_32_32 = NULL
+   LET stmt = "SELECT col_dec_32_32 FROM lyc_0711 WHERE col_dec_32_32 = """,ins_dec_32_32,""""
+   PREPARE p_stmt_132 FROM stmt
+   IF SQLCA.SQLCODE <> 0 THEN DISPLAY "328.SQLCA.SQLCODE = ",SQLCA.SQLCODE END IF
+   EXECUTE p_stmt_132 INTO sel_dec_32_32
+   IF SQLCA.SQLCODE <> 0 THEN DISPLAY "329.SQLCA.SQLCODE = ",SQLCA.SQLCODE END IF
+   IF sel_dec_32_32      IS NULL   THEN DISPLAY "330.NULL"   ELSE DISPLAY "330.|",sel_dec_32_32,"|"   END IF
+
+END MAIN

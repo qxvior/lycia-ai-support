@@ -1,0 +1,18 @@
+DATABASE stores
+MAIN
+DEFINE f, f1, f2 CHAR(10)
+	DECLARE cur CURSOR FOR SELECT c.fname action FROM customer c WHERE c.fname MATCHES "Ludw*"
+	FOREACH cur INTO f
+		DISPLAY f
+	END FOREACH
+
+	DECLARE cur1 CURSOR FOR SELECT c.fname red FROM customer c WHERE c.fname MATCHES "Ludw*"
+	FOREACH cur1 INTO f1
+		DISPLAY f1
+	END FOREACH
+
+	DECLARE cur2 CURSOR FOR SELECT c.fname green FROM customer c WHERE c.fname MATCHES "Ludw*"
+	FOREACH cur2 INTO f2
+		DISPLAY f2
+	END FOREACH
+END MAIN

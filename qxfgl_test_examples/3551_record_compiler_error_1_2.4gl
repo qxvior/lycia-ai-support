@@ -1,0 +1,13 @@
+MAIN
+DEFINE rec1 RECORD
+			f1 CHAR(10),
+			rec2 RECORD
+				f2 CHAR(2)
+			END RECORD
+		END RECORD
+LET rec1.f1 = "f1"
+LET rec1.rec2.f2 = "f2"
+DISPLAY rec1.f1
+DISPLAY rec1.rec2.f2
+DISPLAY rec1.*.*	
+END MAIN

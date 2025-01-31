@@ -1,0 +1,4 @@
+GLOBALS
+    CONSTANT global_r3 ARRAY[3] OF INT      = [ 11343, "1223", "c",192343.4 ]
+END GLOBALS
+

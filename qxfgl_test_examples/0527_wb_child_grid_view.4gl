@@ -1,0 +1,4 @@
+MAIN
+	OPEN WINDOW w WITH FORM "0527/0527_wb_child_grid_view" ATTRIBUTE (BORDER)
+	CALL fgl_getkey()
+END MAIN

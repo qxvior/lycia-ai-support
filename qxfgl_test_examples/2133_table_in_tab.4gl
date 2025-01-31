@@ -1,0 +1,14 @@
+MAIN
+DEFINE arr DYNAMIC ARRAY OF RECORD f1,f2 char(20) END RECORD
+DEFINE i,f1 INT
+
+FOR i=1 TO 1000
+	LET arr[i].f1="item_",trim(i)
+	LET arr[i].f2="qx://application/Calendar.png"
+END FOR
+	OPEN WINDOW w WITH FORM "2133/2133_table_in_tab" ATTRIBUTE (BORDER)
+		INPUT ARRAY arr FROM Table1.* ATTRIBUTE(WITHOUT DEFAULTS)
+		ON ACTION accept
+			DISPLAY "Ok"
+		END INPUT
+END MAIN

@@ -1,0 +1,22 @@
+MAIN
+	CALL f1()
+	CALL f2()
+	CALL f3()
+	DISPLAY "Done"
+END MAIN
+
+FUNCTION f1()
+	DEFINE s1 STRING
+	LET s1 = %"localized string"
+	DISPLAY s1
+END FUNCTION
+
+FUNCTION f2()
+	DEFINE s2 STRING = %"localized string"
+	DISPLAY s2
+END FUNCTION
+
+FUNCTION f3()
+	CONSTANT s3 STRING = %"localized string"
+	DISPLAY s3
+END FUNCTION

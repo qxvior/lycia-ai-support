@@ -1,0 +1,20 @@
+MAIN
+	DEFINE i SMALLINT
+		CALL fgl_setenv("QX_COMPAT","Informix4GL")
+
+WHILE TRUE
+	OPEN WINDOW w_per AT 1,1 WITH FORM "3555/3555_menu_line_changing"
+	MENU "."
+		COMMAND "MENU LINE"
+			LET i=i+1
+			OPTIONS MENU LINE i
+			EXIT MENU			  
+		COMMAND "EXIT"
+			EXIT WHILE
+	END MENU
+	CLOSE WINDOW w_per
+END WHILE	  
+END MAIN
+
+
+

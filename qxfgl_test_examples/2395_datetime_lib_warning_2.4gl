@@ -1,0 +1,1 @@
+GLOBALS 'glob.4gl'

@@ -1,0 +1,107 @@
+##############################################################################################################
+# Testing the WHENEVER statement in GLOBALS ... END GLOBALS section.
+# Author: albo (A.Bondar)
+##############################################################################################################
+GLOBALS "5852_global_file_6a.4gl"
+MAIN
+
+#  Scope of the WHENEVER ANY ERROR CALL error_handler_1 statement (see 5852_global_file_6.4gl module)
+	DISPLAY "1. MAIN"
+	LET glob_integer = "abc" --> This error will be handled by the WHENEVER ANY ERROR CALL error_handler_1 statement  (see 5852_global_file_6.4gl module)
+	CALL func_1() --> Inside the internal func_1() function, the error will be handled by the WHENEVER ANY ERROR CALL error_handler_3 statement
+   CALL func_2() --> Inside the external func_2() function, the error will be handled by the WHENEVER ANY ERROR CALL error_handler_1 statement (see 5852_global_file_6.4gl module)
+   CALL func_3() --> Inside the external func_3() function, the error will be handled by the WHENEVER ERROR CONTINUE statement (see 5852_global_file_6.4gl module)
+	DISPLAY "2. MAIN"
+	LET glob_integer = "abc" --> This error will be handled by the WHENEVER ANY ERROR CALL error_handler_1 statement (see 5852_global_file_6.4gl module)
+
+
+#  Scope of the WHENEVER ANY ERROR CALL error_handler_2 statement
+	WHENEVER ANY ERROR CALL error_handler_2
+	DISPLAY "3. MAIN"
+	LET glob_integer = "abc" --> This error will be handled by the WHENEVER ANY ERROR CALL error_handler_2 statement
+	CALL func_1() --> Inside the internal func_1() function, the error will be handled by the WHENEVER ANY ERROR CALL error_handler_3 statement
+   CALL func_2() --> Inside the external func_2() function, the error will be handled by the WHENEVER ANY ERROR CALL error_handler_1 statement (see 5852_global_file_6.4gl module)
+   CALL func_3() --> Inside the external func_3() function, the error will be handled by the WHENEVER ERROR CONTINUE statement (see 5852_global_file_6.4gl module)
+	DISPLAY "4. MAIN"
+	LET glob_integer = "abc" --> This error will be handled by the WHENEVER ANY ERROR CALL error_handler_2 statement
+
+
+#  Scope of the WHENEVER ANY ERROR CALL error_handler_3 statement
+	WHENEVER ANY ERROR CALL error_handler_3
+	DISPLAY "5. MAIN"
+	LET glob_integer = "abc" --> This error will be handled by the WHENEVER ANY ERROR CALL error_handler_3 statement
+	CALL func_1() --> Inside the internal func_1() function, the error will be handled by the WHENEVER ANY ERROR CALL error_handler_3 statement
+   CALL func_2() --> Inside the external func_2() function, the error will be handled by the WHENEVER ANY ERROR CALL error_handler_1 statement (see 5852_global_file_6.4gl module)
+   CALL func_3() --> Inside the external func_3() function, the error will be handled by the WHENEVER ERROR CONTINUE statement (see 5852_global_file_6.4gl module)
+	DISPLAY "6. MAIN"
+	LET glob_integer = "abc" --> This error will be handled by the WHENEVER ANY ERROR CALL error_handler_3 statement
+
+   DISPLAY "7. END MAIN"
+END MAIN
+
+##############################################################################################################
+# This internal function raises a SQL error.
+##############################################################################################################
+FUNCTION func_1()
+	DEFINE
+		l_integer INTEGER
+
+   DISPLAY "FUNCTION func_1()"
+   LET l_integer = "abc"
+
+END FUNCTION
+
+{
+##############################################################################################################
+# Testing the WHENEVER statement in GLOBALS ... END GLOBALS section.
+# Author: albo (A.Bondar)
+##############################################################################################################
+GLOBALS "5852_global_file_6a.4gl"
+MAIN
+
+#  Scope of the WHENEVER ANY GLOBAL ERROR CALL error_handler_1 statement (see 5852_global_file_6.4gl module)
+	DISPLAY "1. MAIN"
+	LET glob_integer = "abc" --> This error will be handled by the WHENEVER ANY GLOBAL ERROR CALL error_handler_1 statement  (see 5852_global_file_6.4gl module)
+	CALL func_1() --> Inside the internal func_1() function, the error will be handled by the WHENEVER ANY GLOBAL ERROR CALL error_handler_3 statement
+   CALL func_2() --> Inside the external func_2() function, the error will be handled by the WHENEVER ANY GLOBAL ERROR CALL error_handler_1 statement (see 5852_global_file_6.4gl module)
+   CALL func_3() --> Inside the external func_3() function, the error will be handled by the WHENEVER ANY GLOBAL ERROR CALL error_handler_1 statement (see 5852_global_file_6.4gl module)
+	DISPLAY "2. MAIN"
+	LET glob_integer = "abc" --> This error will be handled by the WHENEVER ANY GLOBAL ERROR CALL error_handler_1 statement (see 5852_global_file_6.4gl module)
+
+
+#  Scope of the WHENEVER ANY ERROR CALL error_handler_2 statement
+	WHENEVER ANY ERROR CALL error_handler_2
+	DISPLAY "3. MAIN"
+	LET glob_integer = "abc" --> This error will be handled by the WHENEVER ANY GLOBAL ERROR CALL error_handler_2 statement
+	CALL func_1() --> Inside the internal func_1() function, the error will be handled by the WHENEVER ANY GLOBAL ERROR CALL error_handler_3 statement
+   CALL func_2() --> Inside the external func_2() function, the error will be handled by the WHENEVER ANY GLOBAL ERROR CALL error_handler_1 statement (see 5852_global_file_6.4gl module)
+   CALL func_3() --> Inside the external func_3() function, the error will be handled by the WHENEVER ANY GLOBAL ERROR CALL error_handler_1 statement (see 5852_global_file_6.4gl module)
+	DISPLAY "4. MAIN"
+	LET glob_integer = "abc" --> This error will be handled by the WHENEVER ANY GLOBAL ERROR CALL error_handler_2 statement
+
+
+#  Scope of the WHENEVER ANY ERROR CALL error_handler_3 statement
+	WHENEVER ANY GLOBAL ERROR CALL error_handler_3
+	DISPLAY "5. MAIN"
+	LET glob_integer = "abc" --> This error will be handled by the WHENEVER ANY GLOBAL ERROR CALL error_handler_3 statement
+	CALL func_1() --> Inside the internal func_1() function, the error will be handled by the WHENEVER ANY GLOBAL ERROR CALL error_handler_3 statement
+   CALL func_2() --> Inside the external func_2() function, the error will be handled by the WHENEVER ANY GLOBAL ERROR CALL error_handler_3 statement
+   CALL func_3() --> Inside the external func_3() function, the error will be handled by the WHENEVER ANY GLOBAL ERROR CALL error_handler_3 statement
+	DISPLAY "6. MAIN"
+	LET glob_integer = "abc" --> This error will be handled by the WHENEVER ANY GLOBAL ERROR CALL error_handler_3 statement
+
+   DISPLAY "7. END MAIN"
+END MAIN
+
+##############################################################################################################
+# This internal function raises a SQL error.
+##############################################################################################################
+FUNCTION func_1()
+	DEFINE
+		l_integer INTEGER
+
+   DISPLAY "FUNCTION func_1()"
+   LET l_integer = "abc"
+
+END FUNCTION
+}

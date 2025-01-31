@@ -1,0 +1,13 @@
+
+MAIN
+    WHENEVER SQL ERROR CALL err_func
+	SELECT * FROM table_not_exist
+	OPEN WINDOW w WITH FORM "not_exist"
+	
+
+
+END MAIN
+
+FUNCTION err_func()
+	DISPLAY "Beeep! ",STATUS,"|",STATUS,SQLCA.SQLCODE
+END FUNCTION

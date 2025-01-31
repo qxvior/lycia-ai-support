@@ -1,0 +1,4 @@
+MAIN
+DEFINE tarr DYNAMIC ARRAY OF INT
+DISPLAY ARRAY tarr TO some_rec.field1, some_rec.field2
+END MAIN

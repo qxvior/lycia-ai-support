@@ -1,0 +1,5 @@
+GLOBALS "glob.4gl"
+MAIN
+	CALL func()
+	DISPLAY i
+END MAIN

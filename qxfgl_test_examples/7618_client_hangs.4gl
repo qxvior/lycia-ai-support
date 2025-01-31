@@ -1,0 +1,15 @@
+DEFINE arr1 DYNAMIC ARRAY OF STRING
+DEFINE arr2 DYNAMIC ARRAY OF STRING
+
+MAIN
+	OPEN WINDOW w1 with form "7618/7618_client_hangs_1"
+	LET arr1[1]="AR"
+	LET arr2[1]="zizitop"
+
+	DISPLAY ARRAY arr1 to arr1.*
+		ON ACTION "ACCEPT"
+			OPEN WINDOW w2 with form "7618/7618_client_hangs_2"
+			DISPLAY ARRAY arr2 to arr2.*
+			CLOSE WINDOW w2
+	END DISPLAY 
+END MAIN

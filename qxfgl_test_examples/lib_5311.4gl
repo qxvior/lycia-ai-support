@@ -1,0 +1,3 @@
+FUNCTION lib()
+DISPLAY "ok"
+END FUNCTION

@@ -1,0 +1,31 @@
+MAIN
+
+DEFINE rec ARRAY [1000] OF RECORD 
+       f1,f2,f3 INTEGER 
+       END RECORD 
+DEFINE i ,f5 INT
+OPEN WINDOW w1 WITH FORM "5597/5597_focusable_table_row" ATTRIBUTE (BORDER)
+
+
+	FOR i = 1 TO 100
+		LET rec[i].f1 = i  
+		LET rec[i].f2 = i
+		LET rec[i].f3 = i
+	END FOR
+	CALL SET_COUNT(100)
+	LET f5= "22"
+	DISPLAY BY NAME f5
+	DISPLAY ARRAY rec TO rec.*
+ 		ON ACTION "edit" 
+			DIALOG
+				INPUT BY NAME f5 WITHOUT DEFAULTS
+				END INPUT
+				INPUT ARRAY rec FROM rec.* ATTRIBUTES (WITHOUT DEFAULTS)
+				END INPUT
+				ON ACTION "exit"
+					EXIT DIALOG
+			END DIALOG
+			
+	END DISPLAY    
+END MAIN
+

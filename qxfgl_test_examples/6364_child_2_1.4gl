@@ -1,0 +1,5 @@
+MAIN
+	OPEN WINDOW w2 WITH 20 ROWS, 60 COLUMNS ATTRIBUTE(border)
+	DISPLAY "app2" at 5,5
+	CALL fgl_getkey()
+END MAIN

@@ -1,0 +1,21 @@
+MAIN
+CALL fgl_putenv("QX_COMPAT=Informix4GL")
+WHILE TRUE
+
+OPEN WINDOW w WITH 25 ROWS, 100 COLUMNS ATTRIBUTE(BORDER)
+MENU
+    COMMAND "add1" 
+     	EXIT MENU 
+    COMMAND "add2" 
+     	EXIT MENU 
+    COMMAND "add3" 
+     	EXIT MENU 
+    COMMAND "add4" 
+     	EXIT MENU 
+      
+    COMMAND "exit" 
+     	EXIT PROGRAM 
+END MENU
+close window w
+END WHILE
+END MAIN

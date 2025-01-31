@@ -1,0 +1,4 @@
+
+MAIN
+run "6434_app3"
+END MAIN

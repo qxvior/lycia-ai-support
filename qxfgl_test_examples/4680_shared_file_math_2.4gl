@@ -1,0 +1,8 @@
+MAIN
+	DISPLAY f( 10, 15, 20 )
+END MAIN
+
+FUNCTION g( i1, i2, i3 )
+	DEFINE i1, i2, i3 FLOAT
+	RETURN "g( FLOAT, FLOAT, FLOAT ): ", i1, "|", i2, "|", i3
+END FUNCTION

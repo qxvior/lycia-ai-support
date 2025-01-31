@@ -1,0 +1,4 @@
+MAIN
+DEFINE rec RECORD	f  CHAR(1) END RECORD
+	LET rec[1].f="1"
+END MAIN

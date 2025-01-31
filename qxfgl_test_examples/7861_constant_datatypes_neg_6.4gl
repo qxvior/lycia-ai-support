@@ -1,0 +1,3 @@
+MAIN
+    DEFINE global_r1   DYNAMIC ARRAY OF INT = [ "c",11341, "1221", 192341.4 ]
+END MAIN    

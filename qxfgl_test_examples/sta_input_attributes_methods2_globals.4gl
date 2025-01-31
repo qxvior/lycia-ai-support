@@ -1,0 +1,30 @@
+GLOBALS
+	CONSTANT FILTER_ON BOOLEAN = TRUE
+	CONSTANT FILTER_OFF BOOLEAN = FALSE
+	
+	CONSTANT FILTER_QUERY_OFF SMALLINT = 0
+	CONSTANT FILTER_QUERY_ON SMALLINT = 1
+	CONSTANT FILTER_QUERY_WHERE SMALLINT = 2
+
+	CONSTANT MODE_INSERT = 1
+	CONSTANT MODE_UPDATE = 2
+	
+	CONSTANT UI_ON BOOLEAN = TRUE
+	CONSTANT UI_OFF BOOLEAN = FALSE
+	
+	 
+	
+
+	#Custom DataTypes / Structures/Records
+	DEFINE t_rec_bic TYPE AS
+		RECORD 
+			bic_code             char(11),
+			desc_text            nvarchar(30,0),
+			post_code            nvarchar(10,0),
+			bank_ref             nvarchar(8,0)
+		END RECORD
+
+
+
+		
+END GLOBALS

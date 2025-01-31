@@ -1,0 +1,18 @@
+MAIN
+DEFINE tarr DYNAMIC ARRAY OF RECORD f1,f2 CHAR(20) END RECORD
+DEFINE i INT
+	OPEN WINDOW w WITH FORM "5914/5914_arr_curr_zero"
+	LET tarr[1].f1=1
+	LET tarr[2].f1=2
+	INPUT ARRAY tarr WITHOUT DEFAULTS FROM record1.* ATTRIBUTE(UNBUFFERED) 
+	ON ACTION "REMOVE_ALL"
+		CALL tarr.delete(2)
+		CALL tarr.delete(1)
+	BEFORE ROW 
+		LET i=arr_curr()
+		DISPLAY i
+	AFTER INPUT
+		CALL tarr.deleteElement(i) --remove selected row
+		NEXT FIELD f1
+	END INPUT
+END MAIN

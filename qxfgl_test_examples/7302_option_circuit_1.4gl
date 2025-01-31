@@ -1,0 +1,16 @@
+OPTIONS SHORT CIRCUIT
+MAIN
+	IF 1=2 AND f_true("mod1") THEN
+		DISPLAY "AND TRUE  module1"
+	ELSE 
+		DISPLAY "AND FALSE module1"
+	END IF
+
+	IF 1=1 OR f_true("mod1") THEN
+		DISPLAY "OR TRUE  module1"
+	ELSE 
+		DISPLAY "OR FALSE module1"
+	END IF
+	
+	CALL mod2()
+END MAIN

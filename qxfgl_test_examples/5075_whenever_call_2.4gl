@@ -1,0 +1,3 @@
+MAIN
+DISPLAY "ok"
+END MAIN

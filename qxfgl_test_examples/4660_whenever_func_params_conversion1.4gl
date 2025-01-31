@@ -1,0 +1,10 @@
+FUNCTION setContinue()
+    WHENEVER ANY ERROR CONTINUE
+END FUNCTION
+
+FUNCTION test_continue( i, f )
+    DEFINE i SMALLINT
+    DEFINE f FLOAT
+    DISPLAY "Status:",STATUS
+    DISPLAY "My boys: ", i, "|", f
+END FUNCTION

@@ -1,0 +1,3 @@
+MAIN
+CALL lib()
+END MAIN

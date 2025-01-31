@@ -1,0 +1,4 @@
+MAIN 
+	OPEN WINDOW w WITH FORM "8735/8735_icon_in_titlebar" ATTRIBUTE(BORDER)
+	CALL fgl_getkey()
+END MAIN

@@ -1,0 +1,16 @@
+MAIN
+	DEFINE myMainArr DYNAMIC ARRAY OF string #varchar(20),			
+	CALL get_arr() RETURNING myMainArr
+	DISPLAY myMainArr[1]
+	DISPLAY "END OF TEST"
+END MAIN
+
+FUNCTION get_arr()
+
+	DEFINE myArr DYNAMIC ARRAY OF VARCHAR(30)			
+		
+	LET myArr[1] = "Angela12"
+	DISPLAY myArr[1]
+	DISPLAY "END OF FUNCTION get_arr()"
+	RETURN myArr 
+END FUNCTION

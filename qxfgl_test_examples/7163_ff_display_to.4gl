@@ -1,0 +1,7 @@
+MAIN
+DEFINE f1  STRING
+	OPEN WINDOW w WITH FORM "7163/7163_ff_display_to" ATTRIBUTE(BORDER,RED)
+	CALL fgl_getkey()
+	DISPLAY "11" TO f1
+	CALL fgl_getkey()
+END MAIN

@@ -1,0 +1,6 @@
+MAIN
+	MENU
+		COMMAND "exit"
+			EXIT MENU
+	END MENU
+END MAIN

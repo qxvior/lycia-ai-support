@@ -1,0 +1,7 @@
+GLOBALS "globs.4gl"
+GLOBALS "globs2.4gl"
+
+FUNCTION zzz ()
+OPEN WINDOW w at 1,1 WITH FORM "zz" 
+CLOSE WINDOW w
+END FUNCTION

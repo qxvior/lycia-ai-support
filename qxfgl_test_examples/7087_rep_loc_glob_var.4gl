@@ -1,0 +1,21 @@
+DATABASE stores
+GLOBALS
+	DEFINE r SMALLINT
+END GLOBALS 
+
+MAIN
+	START REPORT inv_xml
+	OUTPUT TO REPORT inv_xml()
+	DISPLAY "OK"
+END MAIN
+
+REPORT inv_xml()
+ DEFINE
+  r RECORD LIKE customer.*
+
+	FORMAT
+	ON EVERY ROW
+	SELECT * INTO r.*
+		FROM customer
+		WHERE customer_num = 2854
+END REPORT

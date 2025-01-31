@@ -1,0 +1,9 @@
+MAIN
+DEFINE l_json_obj util.JSONObject
+LET l_json_obj = NULL
+IF l_json_obj IS NULL THEN
+	DISPLAY "PASS"
+ELSE 
+	DISPLAY "FAIL"
+END IF		
+END MAIN

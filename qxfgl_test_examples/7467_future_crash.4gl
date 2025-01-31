@@ -1,0 +1,4 @@
+MAIN
+  DEFINE t FUTURE
+CALL fgl_getkey()
+END MAIN

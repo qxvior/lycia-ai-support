@@ -1,0 +1,3 @@
+GLOBALS
+    TYPE type_int INTEGER
+END GLOBALS

@@ -1,0 +1,3 @@
+PUBLIC CONSTANT publ_const_text TEXT = "jlökdsajfkdsaölfjlödajflösjdalfjlösdjfsdafjlösdajfdsaöfjöadsjf"
+MAIN
+END MAIN

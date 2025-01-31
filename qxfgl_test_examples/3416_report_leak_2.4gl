@@ -1,0 +1,26 @@
+MAIN
+DEFINE i,k INT
+DEFINE timeStart,TimeEnd DATETIME MINUTE TO FRACTION
+DEFINE res INTERVAL MINUTE TO FRACTION 
+CALL fgl_getkey()
+LET timeStart = CURRENT
+FOR k=1 TO 222
+  START REPORT report_simple_01 TO FILE "file_error.txt"
+  FOR i=1 TO 222
+  	OUTPUT TO REPORT report_simple_01()
+  END FOR
+  FINISH REPORT report_simple_01
+END FOR
+LET TimeEnd = CURRENT
+LET res = TimeEnd - timeStart
+DISPLAY "OPERATION TIME:",res
+CALL fgl_getkey()  
+END MAIN
+
+REPORT report_simple_01()
+DEFINE i INTEGER  
+
+  FORMAT 
+	ON EVERY ROW
+		PRINT "ok"
+END REPORT

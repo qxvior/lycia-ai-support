@@ -1,0 +1,8 @@
+MAIN
+MENU
+	ON ACTION "debug"
+		DISPLAY "f6 child"
+	ON ACTION "exit"
+		EXIT MENU
+END MENU
+END MAIN

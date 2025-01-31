@@ -1,0 +1,9 @@
+MAIN
+ DEFINE c CHAR(2)
+	MENU
+		ON IDLE 3 DISPLAY "ON IDLE 3"
+		ON ACTION "Exit"
+			EXIT MENU
+	END MENU
+	PROMPT "waiting for label" FOR CHAR c 
+END MAIN
